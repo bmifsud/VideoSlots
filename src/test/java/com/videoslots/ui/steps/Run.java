@@ -1,4 +1,4 @@
-package com.videoslot.ui.steps;
+package com.videoslots.ui.steps;
 
 
 import io.cucumber.junit.Cucumber;
@@ -10,6 +10,6 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         tags="@UI",
         plugin = {"pretty", "html:target/cucumber/report"},
-        extraGlue = "com.pixel.ui.steps.commons")
+        extraGlue = "com.videoslots.ui.steps.commons")
 public class Run {
 }
