@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 public class BaseStep {
@@ -28,7 +29,7 @@ public class BaseStep {
     public enum TimeOut {
         LOW(5),
         MIDDLE(10),
-        HIGH(15),
+        HIGH(20),
         CUSTOM_MAX(60);
         private final int value;
 
@@ -43,11 +44,9 @@ public class BaseStep {
     }
 
 
-    public void geturl(String url)
-    {
+    public void geturl(String url) {
         driver.get(url);
     }
-
 
 
     public void waitElement(WebElement element, TimeOut timeOut) {
@@ -60,6 +59,7 @@ public class BaseStep {
         }
 
     }
+
     public void findElementClick(String path, Pather type) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, TimeOut.HIGH.value);
@@ -86,7 +86,8 @@ public class BaseStep {
                     new NotFoundException();
             }
 
-        } catch (Exception ex) { }
+        } catch (Exception ex) {
+        }
     }
 
     // This is used for non-clickable elements
@@ -120,11 +121,11 @@ public class BaseStep {
             }
 
 
-
-        } catch (Exception ex) { }
+        } catch (Exception ex) {
+        }
     }
 
-    public WebElement findElement(String path, Pather type,TimeOut timeOut) {
+    public WebElement findElement(String path, Pather type, TimeOut timeOut) {
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, timeOut.value);
@@ -152,14 +153,12 @@ public class BaseStep {
                     new NotFoundException();
             }
             return element;
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             return null;
         }
     }
 
-    public void waitForElementNotPresent(String path, Pather type,TimeOut timeOut) {
+    public void waitForElementNotPresent(String path, Pather type, TimeOut timeOut) {
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, timeOut.value);
@@ -186,8 +185,8 @@ public class BaseStep {
                     new NotFoundException();
             }
 
+        } catch (Exception ex) {
         }
-        catch (Exception ex){}
     }
 
     public void SelectFrame(String path, Pather type) {
@@ -215,12 +214,12 @@ public class BaseStep {
                 default:
                     new NotFoundException();
             }
+        } catch (Exception ex) {
         }
-        catch (Exception ex){}
     }
 
 
-    public void waitForIFrameToLoad(String path, Pather type,TimeOut timeOut) {
+    public void waitForIFrameToLoad(String path, Pather type, TimeOut timeOut) {
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, timeOut.value);
@@ -247,11 +246,11 @@ public class BaseStep {
                     new NotFoundException();
             }
 
+        } catch (Exception ex) {
         }
-        catch (Exception ex){}
     }
 
-    public void waitForElementToBeClickable(String path, Pather type,TimeOut timeOut) {
+    public void waitForElementToBeClickable(String path, Pather type, TimeOut timeOut) {
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, timeOut.value);
@@ -278,8 +277,17 @@ public class BaseStep {
                     new NotFoundException();
             }
 
+        } catch (Exception ex) {
         }
-        catch (Exception ex){}
+    }
+
+    public void waitForTextToBePresentInElement(String path, Pather type, TimeOut timeOut, String text) {
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeOut.value);
+            wait.until(ExpectedConditions.textToBePresentInElement(findElement(path,type,timeOut),text));
+        }
+        catch (Exception ex) {}
     }
 
     public boolean isTextPresent(String text) {
@@ -298,6 +306,13 @@ public class BaseStep {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollTo(0, 0)");
     }
+
     public void DriverQuit() {
-        driver.quit(); }
+        driver.quit();
     }
+
+
+    public void Wait(Integer seconds) throws InterruptedException {
+        Thread.sleep(seconds*1000);
+    }
+}
