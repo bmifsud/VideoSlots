@@ -10,11 +10,20 @@ Feature: Login
     Examples:
       | Username                  | Password          | Granted |
       #Valid
-      | Bernard.Mifsud@gmail.com   | q~Wk%R/XPNy~6<j   | true    |
+      | Bernard.Mifsud@gmail.com   | q~Wk%R/XPNy~6<j  | true    |
       #Invalid
-      | Bernard.Mifsud@gmail.com   | WrongPassword     | false   |
+      | Bernard.Mifsud@gmail.com   | WrongPassword    | false   |
       | WrongUsenrame@gmail.com   | q~Wk%R/XPNy~6<j   | false   |
       #Test Validator (Test Expected to fail)
       #| BernardWrong@gmail.com    | q~Wk%R/XPNy~6<j   | true    |
 
 
+
+  @API
+  Scenario Outline: API User views home page and confirms <StatusCode>
+    Given API User views Evernote Home
+    Then API User should receive response with <StatusCode>
+    Examples:
+      | StatusCode |
+      #Valid
+      | 200        |
