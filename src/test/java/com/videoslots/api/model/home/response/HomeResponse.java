@@ -1,4 +1,4 @@
-package com.videoslots.api.model.auth.response;
+package com.videoslots.api.model.home.response;
 
 public class HomeResponse {
 

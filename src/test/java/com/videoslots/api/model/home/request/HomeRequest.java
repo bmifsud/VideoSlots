@@ -1,4 +1,4 @@
-package com.videoslots.api.model.auth.request;
+package com.videoslots.api.model.home.request;
 
 public class HomeRequest {
 

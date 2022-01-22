@@ -1,4 +1,4 @@
-package com.videoslots.ui.steps;
+package com.videoslots.api.steps;
 
 
 import io.cucumber.junit.Cucumber;
@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(monochrome = true,
         features = "src/test/resources/features/",
-        tags="@UI",
-        plugin = {"pretty", "html:target/cucumber/report"},
-        extraGlue = "com.videoslots.ui.steps.commons")
-public class Run {
+        tags="@API",
+        //plugin = {"pretty", "html:target/cucumber/report"},
+        extraGlue = "com.pixel.api.steps.commons")
+public class TestRunAPI {
 }

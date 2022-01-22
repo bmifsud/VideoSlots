@@ -1,7 +1,6 @@
 package com.videoslots.api.steps.commons;
 
-import com.google.common.collect.Lists;
-import com.videoslots.api.model.auth.response.HomeResponse;
+import com.videoslots.api.model.home.response.HomeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.*;

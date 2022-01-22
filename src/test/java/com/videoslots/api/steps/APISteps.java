@@ -1,6 +1,6 @@
 package com.videoslots.api.steps;
 
-import com.videoslots.api.model.auth.response.HomeResponse;
+import com.videoslots.api.model.home.response.HomeResponse;
 import com.videoslots.api.steps.commons.ApiClient;
 import com.videoslots.api.steps.commons.ApiConfig;
 import io.cucumber.java.en.Given;
