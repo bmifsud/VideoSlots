@@ -21,6 +21,7 @@ public class ApiConfig {
         initRestTemplate();
     }
 
+    // Basic template configuration for API Rest Calls
     private void initRestTemplate(){
         restTemplate = new RestTemplateBuilder()
                 .rootUri("https://evernote.com")

@@ -21,10 +21,6 @@ public class ApiClient {
         // Default Headers
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-
-        //headers.setAccept(Lists.newArrayList(MediaType.TEXT_HTML,
-                                            // MediaType.APPLICATION_JSON_UTF8,
-                                             //MediaType.APPLICATION_FORM_URLENCODED));
     }
     // Gets homepage
     public HomeResponse apiHome() {
@@ -34,7 +30,7 @@ public class ApiClient {
                 new HttpEntity<>(headers),
                 String.class);
 
-       //returns 2 main responses to be asserted
+       //returns status cosde
        return new HomeResponse(response.getStatusCode().value());
 
     }
